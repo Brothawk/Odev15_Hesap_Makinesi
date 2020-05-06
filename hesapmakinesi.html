@@ -1,0 +1,150 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Baran İlgün Hesap Makinesi</title>
+<h1>Hesap Makinesi</h1>
+<p>Bu hesap makinesi MALTEK çalışanı Baran İlgün tarafından yapılmıştır.</p>
+
+<style type="text/css">
+  #ana_orta {
+    width: 650px;
+    height: 350px;
+    padding: 20px;
+    background-color: skyblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -325px;
+    margin-top: -175px;
+}
+#orta{
+  width: 250px;
+  height: 250px;
+  background-color: salmon;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -125px;
+  text-align: center;
+
+}
+input[type=number]{
+  width: 70%;
+  padding:8px 16px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px  0;
+  box-sizing: border-box;
+  outline: none;
+  display: inline-block;
+  background-color: salmon;
+  color: white;
+  -moz-appearance: textfield;
+}
+input[type=button]{
+    background-color: salmon;
+    text-decoration: none;
+    border:none;
+    color: white;
+    padding: 12px 12px;
+    margin: 5px 5px;
+    cursor: pointer;
+    outline: none;
+
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  
+}
+
+}
+</style>
+<script language="javascript">
+<!-- 
+
+ 
+var rakamekle = false
+var oncekisonuc = 0
+var islem = "="
+function temizle()
+{
+  document.hesapmakinesi.sonuc.value = 0
+  oncekisonuc = 0
+  rakamekle = false
+  islem = "="
+} 
+function hesapla(yeniislem)
+{
+ 
+  var yenisayi = eval(document.hesapmakinesi.sonuc.value)
+ 
+  if (islem == "+") {
+    oncekisonuc = oncekisonuc + yenisayi
+  }
+  else if (islem == "-") {
+    oncekisonuc = oncekisonuc - yenisayi
+  } 
+  else if (islem == "/") {
+    oncekisonuc = oncekisonuc / yenisayi
+  }
+  else if (islem == "*") {
+    oncekisonuc = oncekisonuc * yenisayi
+  }
+  else if (islem == "=") {
+    oncekisonuc = yenisayi
+  }
+  else { 
+    oncekisonuc = yenisayi
+  }
+   
+  document.hesapmakinesi.sonuc.value = oncekisonuc
+  rakamekle = false
+  islem = yeniislem
+} 
+ 
+function sayiyaz(rakam)
+{
+  if (rakamekle) {
+    document.hesapmakinesi.sonuc.value += rakam
+  }
+  else {
+    document.hesapmakinesi.sonuc.value = rakam
+    rakamekle = true
+  }
+}
+-->
+</script>
+</head>
+<body>
+<div id="ana_orta">
+<div id="orta">
+<form name="hesapmakinesi" id="hesap_makinesi">
+<input type="number" name="sonuc" value="0" color="white">
+<br>
+<input type="button" name="7" value="7" onClick="sayiyaz(7)">
+<input type="button" name="8" value="8" onClick="sayiyaz(8)">
+<input type="button" name="9" value="9" onClick="sayiyaz(9)">
+<input type="button" name="+" value="+" onClick="hesapla('+')">
+<br>
+<input type="button" name="4" value="4" onClick="sayiyaz(4)">
+<input type="button" name="5" value="5" onClick="sayiyaz(5)">
+<input type="button" name="6" value="6" onClick="sayiyaz(6)">
+<input type="button" name="-" value="-" onClick="hesapla('-')">
+<br>
+<input type="button" name="1" value="1" onClick="sayiyaz(1)">
+<input type="button" name="2" value="2" onClick="sayiyaz(2)">
+<input type="button" name="3" value="3" onClick="sayiyaz(3)">
+<input type="button" name="*" value="*" onClick="hesapla('*')">
+<br>
+<input type="button" name="0" value="0" onClick="sayiyaz(0)">
+<input type="button" name="C" value="C" onClick="temizle()">
+<input type="button" name="=" value="=" onClick="hesapla('=')">
+<input type="button" name="/" value="/" onClick="hesapla('/')">
+</form>
+</div>
+</div>
+</body>
+</html>
